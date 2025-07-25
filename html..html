@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>فرم سفارش خدمات طراحی - گروه هویتو</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    background: #1C1F2A;
+    color: #F8F3EC;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container {
+    background: #F8F3EC;
+    color: #1C1F2A;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    padding: 30px 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 900;
+  }
+  form label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 700;
+    font-size: 14.5px;
+  }
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="email"],
+  form input[type="date"],
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 6px;
+    border-radius: 12px;
+    border: 1.5px solid #ccc;
+    font-size: 15px;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    color: #1C1F2A;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  form input:focus,
+  form select:focus,
+  form textarea:focus {
+    outline: none;
+    border-color: #1C1F2A;
+    box-shadow: 0 0 8px #1C1F2A;
+  }
+  form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  button {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #1C1F2A;
+    color: #F8F3EC;
+    border: none;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 900;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(28,31,42,0.7);
+    transition: background-color 0.4s ease, transform 0.2s ease;
+  }
+  button:hover {
+    background-color: #2d3143;
+    transform: scale(1.05);
+  }
+  .thankyou-message {
+    display: none;
+    background: #d4edda;
+    border: 1.5px solid #28a745;
+    color: #155724;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .error {
+    color: #d93025;
+    font-size: 13px;
+    margin-top: 4px;
+    display: none;
+  }
+  @media(max-width: 600px) {
+    .container {
+      padding: 25px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>مجموعه گروه طراحی و دیزاین هویتو</h1>
+  </header>
+
+  <form id="orderForm" action="https://formsubmit.co/bahar.karami00kk@gmail.com" method="POST" novalidate>
+    <label for="name">نام و نام خانوادگی *</label>
+    <input type="text" id="name" name="name" required placeholder="نام و نام خانوادگی خود را وارد کنید" />
+    <div class="error" id="nameError">لطفا این فیلد را پر کنید.</div>
+
+    <label for="phone">شماره تماس *</label>
+    <input type="tel" id="phone" name="phone" required placeholder="مثال: 09123456789" pattern="^\d{10,15}$" />
+    <div class="error" id="phoneError">شماره تماس معتبر وارد کنید.</div>
+
+    <label for="email">ایمیل</label>
+    <input type="email" id="email" name="email" placeholder="example@mail.com" />
+
+    <label for="service">نوع خدمات مورد نظر</label>
+    <select id="service" name="service">
+      <option value="">انتخاب کنید</option>
+      <option value="طراحی لوگو">طراحی لوگو</option>
+      <option value="طراحی کارت ویزیت">طراحی کارت ویزیت</option>
+      <option value="طراحی بروشور">طراحی بروشور</option>
+      <option value="طراحی سایت">طراحی سایت</option>
+      <option value="مشاوره تبلیغات">مشاوره تبلیغات</option>
+      <option value="سایر">سایر...</option>
+    </select>
+
+    <label for="colors">رنگ‌های دلخواه</label>
+    <input type="text" id="colors" name="colors" placeholder="مثلا سرمه‌ای و شیری" />
+
+    <label for="style">سبک طراحی مورد علاقه</label>
+    <input type="text" id="style" name="style" placeholder="مثلا مدرن، مینیمال، کلاسیک" />
+
+    <label for="address">آدرس محل ارسال (اختیاری)</label>
+    <input type="text" id="address" name="address" placeholder="در صورت نیاز" />
+
+    <label for="deadline">تاریخ تحویل مورد نظر</label>
+    <input type="date" id="deadline" name="deadline" />
+
+    <label for="message">توضیحات بیشتر</label>
+    <textarea id="message" name="message" placeholder="هر نکته‌ای که دوست داری بگو"></textarea>
+
+    <input type="hidden" name="_next" value="" />
+    <input type="hidden" name="_captcha" value="false" />
+
+    <button type="submit">ارسال درخواست</button>
+  </form>
+
+  <div class="thankyou-message" id="thankyouMessage">
+    <p>درخواست شما با موفقیت ارسال شد! ممنون از اعتماد شما.</p>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('orderForm');
+  const thankyou = document.getElementById('thankyouMessage');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    document.querySelectorAll('.error').forEach(e => e.style.display = 'none');
+
+    let valid = true;
+
+    if (!form.name.value.trim()) {
+      document.getElementById('nameError').style.display = 'block';
+      valid = false;
+    }
+
+    const phonePattern = /^\d{10,15}$/;
+    if (!phonePattern.test(form.phone.value.trim())) {
+      document.getElementById('phoneError').style.display = 'block';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
+      } else {
+        alert('خطا در ارسال فرم. لطفا دوباره تلاش کنید.');
+      }
+    }).catch(() => {
+      alert('خطا در ارسال فرم. لطفا دوباره تلاش کنید.');
+    });
+  });
+</script>
+
+</body>
+</html>
